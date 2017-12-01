@@ -8,11 +8,11 @@ angular.module('comment', [])
       $scope.formContent='';
 	    $scope.price='';
 	    $scope.url='';
-      $http.post('/comments', newitem).success(function(data){
+      $http.post('/comments', newcomment).success(function(data){
         $scope.comments.push(data);
       });
     };
-    $scope.delete = function(item) {
+    $scope.delete = function(comment) {
       $http.delete('/comments/' + comment._id)
         .success(function(data) {
           console.log("delete worked");
