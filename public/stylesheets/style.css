@@ -5,13 +5,11 @@ body {
 }
 
 .items{
- background-color:#ccc;
-  border-style:solid;
-  border-radius:10px;
+
   max-height:150px;
 }
 img{
-  max-width:200px;
+  max-width:150px;
 }
 a {
   color: #00B7FF;
