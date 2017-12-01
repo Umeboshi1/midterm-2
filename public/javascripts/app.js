@@ -4,7 +4,7 @@ angular.module('comment', [])
   function($scope,$http){
     $scope.comments = [];
     $scope.addComment = function() {
-      var newcomment = {title:$scope.formContent,price:$scope.price,url:$scope.url};
+      var newcomment = {title:$scope.formContent,price:$scope.formPrice,url:$scope.formUrl};
       $scope.formContent='';
 	    $scope.price='';
 	    $scope.url='';
