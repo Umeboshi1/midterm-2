@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var ItemSchema = new mongoose.Schema({
+var CommentSchema = new mongoose.Schema({
   title: String,
   price: String,
   url: String,
@@ -8,4 +8,4 @@ var ItemSchema = new mongoose.Schema({
   this.upvotes += 1;
   this.save(cb);
 };*/
-mongoose.model('Item', ItemSchema);
+mongoose.model('Comments', CommentSchema);
