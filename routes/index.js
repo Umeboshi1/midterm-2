@@ -7,6 +7,7 @@ router.get('/comments', function(req, res, next) {
   Comment.find(function(err, comments){
     if(err){ return next(err); }
     res.json(comments);
+    concole.log("get:" + req);
   });
 });
 
@@ -15,6 +16,7 @@ router.post('/comments', function(req, res, next) {
   comment.save(function(err, comment){
     if(err){ return next(err); }
     res.json(comment);
+    concole.log("post:" + req);
   });
 });
 
@@ -24,11 +26,12 @@ router.param('comment', function(req, res, next, id) {
     if (err) { return next(err); }
     if (!comment) { return next(new Error("can't find item")); }
     req.comment = comment;
+    concole.log("param:" + req);
     return next();
   });
 });
 
-router.get('/comments/:commet', function(req, res) {
+router.get('/comments/:comment', function(req, res) {
   res.json(req.comment);
 });
 
@@ -42,6 +45,7 @@ router.get('/comments/:commet', function(req, res) {
 router.delete('/comments/:comment', function(req, res) {
   console.log("in Delete");
   req.comment.remove();
+  concole.log("delete:" + req);
   res.sendStatus(200);
 });
 module.exports = router;
