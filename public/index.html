@@ -19,7 +19,7 @@
     <input type="text" ng-model="formUrl"></input>
     <button type="submit">Add Item</button>
   </form>
-  <div ng-repeat="comment in comments | orderBy: '-title'">
+  <div ng-repeat="comment in comments | orderBy: 'title'">
     <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
     {{comment.title}} : ${{comment.price}} <img src="{{comment.url}}">
   </div>
