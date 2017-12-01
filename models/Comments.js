@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
-var CommentSchema = new mongoose.Schema({
+var ItemSchema = new mongoose.Schema({
   title: String,
-  upvotes: {type: Number, default: 0},
+  price: String,
+  url: String,
 });
-CommentSchema.methods.upvote = function(cb) {
+/*CommentSchema.methods.upvote = function(cb) {
   this.upvotes += 1;
   this.save(cb);
-};
-mongoose.model('Comment', CommentSchema);
+};*/
+mongoose.model('Item', ItemSchema);
