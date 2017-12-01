@@ -23,8 +23,8 @@
     {{test}}
   </div>
   <div ng-repeat="comment in comments>
-    <span class="glyphicon glyphicon-remove" ng-click="delete(item)"></span>
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(item)"></span>
+    <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
+    /*<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(item)"></span>*/
     {{comment.title}} {{comment.price}} {{comment:url}}
   </div>
 </div>
