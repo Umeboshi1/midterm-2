@@ -1,47 +1,47 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Comment = mongoose.model('Comment');
+var Item = mongoose.model('Item');
 
-router.get('/comments', function(req, res, next) {
-  Comment.find(function(err, comments){
+router.get('/items', function(req, res, next) {
+  Item.find(function(err, items){
     if(err){ return next(err); }
-    res.json(comments);
+    res.json(items);
   });
 });
 
-router.post('/comments', function(req, res, next) {
-  var comment = new Comment(req.body);
-  comment.save(function(err, comment){
+router.post('/items', function(req, res, next) {
+  var item = new Item(req.body);
+  item.save(function(err, item){
     if(err){ return next(err); }
-    res.json(comment);
+    res.json(item);
   });
 });
 
-router.param('comment', function(req, res, next, id) {
-  var query = Comment.findById(id);
-  query.exec(function (err, comment){
+router.param('item', function(req, res, next, id) {
+  var query = Item.findById(id);
+  query.exec(function (err, item){
     if (err) { return next(err); }
-    if (!comment) { return next(new Error("can't find comment")); }
-    req.comment = comment;
+    if (!item) { return next(new Error("can't find item")); }
+    req.item = item;
     return next();
   });
 });
 
-router.get('/comments/:comment', function(req, res) {
-  res.json(req.comment);
+router.get('/items/:item', function(req, res) {
+  res.json(req.item);
 });
 
-router.put('/comments/:comment/upvote', function(req, res, next) {
+/*router.put('/items/:item/upvote', function(req, res, next) {
   req.comment.upvote(function(err, comment){
     if (err) { return next(err); }
     res.json(comment);
   });
-});
+});*/
 
-router.delete('/comments/:comment', function(req, res) {
+router.delete('/items/:item', function(req, res) {
   console.log("in Delete");
-  req.comment.remove();
+  req.item.remove();
   res.sendStatus(200);
 });
 module.exports = router;
