@@ -1,10 +1,10 @@
-angular.module('comment',[])
+angular.module('item',[])
 .controller('MainCtrl',[
 '$scope',
 function($scope) {
-  $scope.comments = [];
-  $scope.addComment = function() {
-      $scope.comments.push({title:$scope.formContent,upvotes:0});
+  $scope.items = [];
+  $scope.addItem = function() {
+      $scope.items.push({title:$scope.formContent,upvotes:0});
       $scope.formContent='';
     };
   $scope.incrementUpVotes = function(comment) {
