@@ -5,28 +5,31 @@ var Comment = mongoose.model('Comment');
 
 router.get('/comments', function(req, res, next) {
   Comment.find(function(err, comments){
+    concole.log("get:" + req);
     if(err){ return next(err); }
     res.json(comments);
-    concole.log("get:" + req);
+    
   });
 });
 
 router.post('/comments', function(req, res, next) {
   var comment = new Comment(req.body);
   comment.save(function(err, comment){
+    concole.log("post:" + req);
     if(err){ return next(err); }
     res.json(comment);
-    concole.log("post:" + req);
+    
   });
 });
 
 router.param('comment', function(req, res, next, id) {
   var query = Comment.findById(id);
   query.exec(function (err, comment){
+    concole.log("param:" + req);
     if (err) { return next(err); }
     if (!comment) { return next(new Error("can't find item")); }
     req.comment = comment;
-    concole.log("param:" + req);
+    
     return next();
   });
 });
