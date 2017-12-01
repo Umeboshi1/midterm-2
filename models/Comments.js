@@ -8,4 +8,4 @@ var CommentSchema = new mongoose.Schema({
   this.upvotes += 1;
   this.save(cb);
 };*/
-mongoose.model('Comments', CommentSchema);
+mongoose.model('Comment', CommentSchema);
