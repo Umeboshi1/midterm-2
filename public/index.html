@@ -15,13 +15,13 @@
 </div>
 
   <form ng-submit="addComment()" style = "margin-top30px;">
-    <input type="text" ng-model="formContent"></input>
-    <input type="text" ng-model="formPrice"></input>
-    <input type="text" ng-model="formUrl"></input>
+    <input type="text" ng-model="formContent">Item</input>
+    <input type="text" ng-model="formPrice">Price</input>
+    <input type="text" ng-model="formUrl">image URL</input>
     <button type="submit">Add Item</button>
   </form>
   <h3> Current Products</h3>
-  <div ng-repeat="comment in comments | orderBy: 'title'">
+  <div class="items" ng-repeat="comment in comments | orderBy: 'title'">
     <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
     {{comment.title}} : ${{comment.price}} <img src="{{comment.url}}">
   </div>
