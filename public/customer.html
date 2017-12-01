@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Comments</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+
+</head>
+<body ng-app="comment" ng-controller="MainCtrl">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="page-header"> 
+  <h1>Shopping Interface </h1>
+</div>
+
+  <h3> Current Products</h3>
+  <div ng-repeat="comment in comments | orderBy: 'title'">
+    <input type="checkbox" ng-checked="all">
+    {{comment.title}} : ${{comment.price}} <img src="{{comment.url}}">
+  </div>
+</div>
+</div>
+</body>
+</html>
