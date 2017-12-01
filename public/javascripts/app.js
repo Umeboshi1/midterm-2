@@ -10,7 +10,9 @@ angular.module('comment', [])
 	    $scope.formUrl='';
       $http.post('/comments', newcomment).success(function(data){
         $scope.comments.push(data);
+	      console.log("here?");
       });
+	    console.log("there");
     };
     $scope.delete = function(comment) {
       $http.delete('/comments/' + comment._id)
