@@ -3,7 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align:center;
 }
-
+form {
+  background-color:#ddd;
+  border-style:solid;
+  border-radius:10px;
+}
 .items{
 
   max-height:150px;
