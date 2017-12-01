@@ -5,7 +5,7 @@ var Comment = mongoose.model('Comment');
 
 router.get('/comments', function(req, res, next) {
   Comment.find(function(err, comments){
-    concole.log("get:" + req);
+    console.log("get:" + req);
     if(err){ return next(err); }
     res.json(comments);
     
@@ -15,7 +15,7 @@ router.get('/comments', function(req, res, next) {
 router.post('/comments', function(req, res, next) {
   var comment = new Comment(req.body);
   comment.save(function(err, comment){
-    concole.log("post:" + req);
+    console.log("post:" + req);
     if(err){ return next(err); }
     res.json(comment);
     
@@ -25,7 +25,7 @@ router.post('/comments', function(req, res, next) {
 router.param('comment', function(req, res, next, id) {
   var query = Comment.findById(id);
   query.exec(function (err, comment){
-    concole.log("param:" + req);
+    console.log("param:" + req);
     if (err) { return next(err); }
     if (!comment) { return next(new Error("can't find item")); }
     req.comment = comment;
@@ -48,7 +48,7 @@ router.get('/comments/:comment', function(req, res) {
 router.delete('/comments/:comment', function(req, res) {
   console.log("in Delete");
   req.comment.remove();
-  concole.log("delete:" + req);
+  console.log("delete:" + req);
   res.sendStatus(200);
 });
 module.exports = router;
