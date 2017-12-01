@@ -4,8 +4,10 @@ angular.module('comment', [])
   function($scope,$http){
     $scope.comments = [];
     $scope.addComment = function() {
-      var newcomment = {title:$scope.formContent,upvotes:0};
+      var newcomment = {title:$scope.formContent,price:$scope.price,url:$scope.url,upvotes:0};
       $scope.formContent='';
+	    $scope.price='';
+	    $scope.url='';
       $http.post('/comments', newcomment).success(function(data){
         $scope.comments.push(data);
       });
